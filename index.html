@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Cozy Apartment</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Unica+One&display=swap" rel="stylesheet">
+
+    <meta name="author" content="Victoria Liu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Cozy Apartment - a home decoration personality quiz game">
+  </head>
+  <body>
+
+    <div id="intro" class="">
+      <div id="intro-heading">
+        <div class="box-line">
+          <div class="pink"></div>
+          <div class="red"></div>
+          <div class="orange"></div>
+          <div class="yellow"></div>
+          <div class="green"></div>
+          <div class="blue"></div>
+          <div class="purple"></div>
+          <div class="pink"></div>
+          <div class="red"></div>
+          <div class="orange"></div>
+          <div class="yellow"></div>
+          <div class="green"></div>
+          <div class="blue"></div>
+          <div class="purple"></div>
+        </div>
+        <div id="heading-cont">
+          <h1 class="title-font">My Cozy Apartment</h1>
+          <p>Have you ever wondered what your interior decorating skills and favorite colors say about you? Decorate the apartment of your dreams and find out!</p>
+        </div>
+        <div class="box-line">
+          <div class="purple"></div>
+          <div class="blue"></div>
+          <div class="green"></div>
+          <div class="yellow"></div>
+          <div class="orange"></div>
+          <div class="red"></div>
+          <div class="pink"></div>
+          <div class="purple"></div>
+          <div class="blue"></div>
+          <div class="green"></div>
+          <div class="yellow"></div>
+          <div class="orange"></div>
+          <div class="red"></div>
+          <div class="pink"></div>
+        </div>
+      </div>
+      <div id="start-btn-cont">
+        <div id="start-btn">
+          <p class="title-font">Start</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="results-page" class="hidden">
+      <div id="results-heading">
+        <h1 class="title-font">Your Results</h1>
+      </div>
+      <div id="results-content">
+        <p id="bar-title">Your color distribution:</p>
+        <p id="bar-caption">Click on a color to read more</p>
+        <div id="results-bar"></div>
+        
+      </div>
+
+      <div id="credits">
+        <p>Thank you to Kathryn Lee, Clarissa Pace, and Kaitlyn Zou for contributing to the 570 possible result sentences.</p>
+        <p>Background music by ZHRØ on Freesound.org.</p>
+      </div>
+
+    </div>
+
+    <div id="loading" class="hidden">
+      <div id="loading-heading">
+        <h1 class="title-font">Generating Your Results...</h1>
+      </div>
+      <div id="progress-bar-out"></div>
+    </div>
+
+    <div id="main" class="no-opac">
+      <div id="heading">
+        <h1 class="title-font">Your Apartment</h1>
+        <p>Click on the arrow to open the menu on the left. Drag and drop items to decorate your apartment. Use the menu at the bottom to change the color and pattern of each room. Click "Done" when you're finished decorating to get your results!</p>
+      </div>
+      <div id="menu">
+  
+          <div id="tabs">
+            <div id="tab1" class="tab selected" data-section="section1">Furniture</div>
+  
+            <div id="tab2" class="tab" data-section="section2">Appliances/Fixtures</div>
+  
+            <div id="tab3" class="tab" data-section="section3">Decorations</div>
+  
+            <div id="tab4" class="tab" data-section="section4">Other</div>
+  
+          </div>
+          
+          <!-- id: unique id for each item image, d: class to add to items when used for styling, w: width, h: height, col: color tag -->
+
+          <!-- furniture -->
+          <div id="section1" class="menu-section">
+            <div class="menu-item d-1x1" data-id="dresser-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="dresser-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="dresser-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="dresser-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="dresser-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="dresser-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="dresser-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="dresser-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="dresser-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="dresser-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="table-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="table-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="table-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="table-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="table-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="table-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="table-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="table-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="table-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="table-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="chair-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="chair-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="chair-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="chair-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="chair-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="chair-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="chair-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="chair-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="chair-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="chair-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="chairright-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="chairright-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="chairright-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="chairright-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="chairright-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="chairright-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="chairright-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="chairright-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="chairright-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="chairright-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="chairleft-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="cabinet-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="wallcabinet-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x3" data-id="mirror-1x3-1" data-d="d-1x3" data-w="1" data-h="3" data-col="pink"></div>
+            <div class="menu-item d-1x3" data-id="mirror-1x3-2" data-d="d-1x3" data-w="1" data-h="3" data-col="red"></div>
+            <div class="menu-item d-1x3" data-id="mirror-1x3-3" data-d="d-1x3" data-w="1" data-h="3" data-col="orange"></div>
+            <div class="menu-item d-1x3" data-id="mirror-1x3-4" data-d="d-1x3" data-w="1" data-h="3" data-col="yellow"></div>
+            <div class="menu-item d-1x3" data-id="mirror-1x3-5" data-d="d-1x3" data-w="1" data-h="3" data-col="green"></div>
+            <div class="menu-item d-1x3" data-id="mirror-1x3-6" data-d="d-1x3" data-w="1" data-h="3" data-col="blue"></div>
+            <div class="menu-item d-1x3" data-id="mirror-1x3-7" data-d="d-1x3" data-w="1" data-h="3" data-col="purple"></div>
+            <div class="menu-item d-1x3" data-id="mirror-1x3-8" data-d="d-1x3" data-w="1" data-h="3" data-col="white"></div>
+            <div class="menu-item d-1x3" data-id="mirror-1x3-9" data-d="d-1x3" data-w="1" data-h="3" data-col="black"></div>
+            <div class="menu-item d-1x3" data-id="mirror-1x3-10" data-d="d-1x3" data-w="1" data-h="3" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="mirror-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="mirror-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="mirror-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="mirror-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="mirror-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="mirror-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="mirror-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="mirror-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="mirror-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="mirror-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="shelf-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="shelf-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="shelf-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="shelf-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="shelf-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="shelf-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="shelf-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="shelf-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="shelf-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="shelf-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="bookshelf-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="bed-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="bed-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="bed-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="bed-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="bed-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="bed-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="bed-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="bed-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="bed-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="bed-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-1" data-d="d-2x1" data-w="2" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-2" data-d="d-2x1" data-w="2" data-h="1" data-col="red"></div>
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-3" data-d="d-2x1" data-w="2" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-4" data-d="d-2x1" data-w="2" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-5" data-d="d-2x1" data-w="2" data-h="1" data-col="green"></div>
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-6" data-d="d-2x1" data-w="2" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-7" data-d="d-2x1" data-w="2" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-8" data-d="d-2x1" data-w="2" data-h="1" data-col="white"></div>
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-9" data-d="d-2x1" data-w="2" data-h="1" data-col="black"></div>
+            <div class="menu-item d-2x1" data-id="bedfront-2x1-10" data-d="d-2x1" data-w="2" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-2x1" data-id="bedside-2x1-1" data-d="d-2x1" data-w="2" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-2x1" data-id="bedside-2x1-2" data-d="d-2x1" data-w="2" data-h="1" data-col="red"></div>
+            <div class="menu-item d-2x1" data-id="bedside-2x1-3" data-d="d-2x1" data-w="2" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-2x1" data-id="bedside-2x1-4" data-d="d-2x1" data-w="2" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-2x1" data-id="bedside-2x1-5" data-d="d-2x1" data-w="2" data-h="1" data-col="green"></div>
+            <div class="menu-item d-2x1" data-id="bedside-2x1-6" data-d="d-2x1" data-w="2" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-2x1" data-id="bedside-2x1-7" data-d="d-2x1" data-w="2" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-2x1" data-id="bedside-2x1-8" data-d="d-2x1" data-w="2" data-h="1" data-col="white"></div>
+            <div class="menu-item d-2x1" data-id="bedside-2x1-9" data-d="d-2x1" data-w="2" data-h="1" data-col="black"></div>
+            <div class="menu-item d-2x1" data-id="bedside-2x1-10" data-d="d-2x1" data-w="2" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-2x1" data-id="shelf-2x1-1" data-d="d-2x1" data-w="2" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-2x1" data-id="shelf-2x1-2" data-d="d-2x1" data-w="2" data-h="1" data-col="red"></div>
+            <div class="menu-item d-2x1" data-id="shelf-2x1-3" data-d="d-2x1" data-w="2" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-2x1" data-id="shelf-2x1-4" data-d="d-2x1" data-w="2" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-2x1" data-id="shelf-2x1-5" data-d="d-2x1" data-w="2" data-h="1" data-col="green"></div>
+            <div class="menu-item d-2x1" data-id="shelf-2x1-6" data-d="d-2x1" data-w="2" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-2x1" data-id="shelf-2x1-7" data-d="d-2x1" data-w="2" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-2x1" data-id="shelf-2x1-8" data-d="d-2x1" data-w="2" data-h="1" data-col="white"></div>
+            <div class="menu-item d-2x1" data-id="shelf-2x1-9" data-d="d-2x1" data-w="2" data-h="1" data-col="black"></div>
+            <div class="menu-item d-2x1" data-id="shelf-2x1-10" data-d="d-2x1" data-w="2" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-2x1" data-id="desk-2x1-1" data-d="d-2x1" data-w="2" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-2x1" data-id="desk-2x1-2" data-d="d-2x1" data-w="2" data-h="1" data-col="red"></div>
+            <div class="menu-item d-2x1" data-id="desk-2x1-3" data-d="d-2x1" data-w="2" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-2x1" data-id="desk-2x1-4" data-d="d-2x1" data-w="2" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-2x1" data-id="desk-2x1-5" data-d="d-2x1" data-w="2" data-h="1" data-col="green"></div>
+            <div class="menu-item d-2x1" data-id="desk-2x1-6" data-d="d-2x1" data-w="2" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-2x1" data-id="desk-2x1-7" data-d="d-2x1" data-w="2" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-2x1" data-id="desk-2x1-8" data-d="d-2x1" data-w="2" data-h="1" data-col="white"></div>
+            <div class="menu-item d-2x1" data-id="desk-2x1-9" data-d="d-2x1" data-w="2" data-h="1" data-col="black"></div>
+            <div class="menu-item d-2x1" data-id="desk-2x1-10" data-d="d-2x1" data-w="2" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-2x1" data-id="table-2x1-1" data-d="d-2x1" data-w="2" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-2x1" data-id="table-2x1-2" data-d="d-2x1" data-w="2" data-h="1" data-col="red"></div>
+            <div class="menu-item d-2x1" data-id="table-2x1-3" data-d="d-2x1" data-w="2" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-2x1" data-id="table-2x1-4" data-d="d-2x1" data-w="2" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-2x1" data-id="table-2x1-5" data-d="d-2x1" data-w="2" data-h="1" data-col="green"></div>
+            <div class="menu-item d-2x1" data-id="table-2x1-6" data-d="d-2x1" data-w="2" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-2x1" data-id="table-2x1-7" data-d="d-2x1" data-w="2" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-2x1" data-id="table-2x1-8" data-d="d-2x1" data-w="2" data-h="1" data-col="white"></div>
+            <div class="menu-item d-2x1" data-id="table-2x1-9" data-d="d-2x1" data-w="2" data-h="1" data-col="black"></div>
+            <div class="menu-item d-2x1" data-id="table-2x1-10" data-d="d-2x1" data-w="2" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-2x2" data-id="sofa-2x2-1" data-d="d-2x2" data-w="2" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-2x2" data-id="sofa-2x2-2" data-d="d-2x2" data-w="2" data-h="2" data-col="red"></div>
+            <div class="menu-item d-2x2" data-id="sofa-2x2-3" data-d="d-2x2" data-w="2" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-2x2" data-id="sofa-2x2-4" data-d="d-2x2" data-w="2" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-2x2" data-id="sofa-2x2-5" data-d="d-2x2" data-w="2" data-h="2" data-col="green"></div>
+            <div class="menu-item d-2x2" data-id="sofa-2x2-6" data-d="d-2x2" data-w="2" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-2x2" data-id="sofa-2x2-7" data-d="d-2x2" data-w="2" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-2x2" data-id="sofa-2x2-8" data-d="d-2x2" data-w="2" data-h="2" data-col="white"></div>
+            <div class="menu-item d-2x2" data-id="sofa-2x2-9" data-d="d-2x2" data-w="2" data-h="2" data-col="black"></div>
+            <div class="menu-item d-2x2" data-id="sofa-2x2-10" data-d="d-2x2" data-w="2" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-2x2" data-id="vanity-2x2-1" data-d="d-2x2" data-w="2" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-2x2" data-id="vanity-2x2-2" data-d="d-2x2" data-w="2" data-h="2" data-col="red"></div>
+            <div class="menu-item d-2x2" data-id="vanity-2x2-3" data-d="d-2x2" data-w="2" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-2x2" data-id="vanity-2x2-4" data-d="d-2x2" data-w="2" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-2x2" data-id="vanity-2x2-5" data-d="d-2x2" data-w="2" data-h="2" data-col="green"></div>
+            <div class="menu-item d-2x2" data-id="vanity-2x2-6" data-d="d-2x2" data-w="2" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-2x2" data-id="vanity-2x2-7" data-d="d-2x2" data-w="2" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-2x2" data-id="vanity-2x2-8" data-d="d-2x2" data-w="2" data-h="2" data-col="white"></div>
+            <div class="menu-item d-2x2" data-id="vanity-2x2-9" data-d="d-2x2" data-w="2" data-h="2" data-col="black"></div>
+            <div class="menu-item d-2x2" data-id="vanity-2x2-10" data-d="d-2x2" data-w="2" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-1" data-d="d-2x3" data-w="2" data-h="3" data-col="pink"></div>
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-2" data-d="d-2x3" data-w="2" data-h="3" data-col="red"></div>
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-3" data-d="d-2x3" data-w="2" data-h="3" data-col="orange"></div>
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-4" data-d="d-2x3" data-w="2" data-h="3" data-col="yellow"></div>
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-5" data-d="d-2x3" data-w="2" data-h="3" data-col="green"></div>
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-6" data-d="d-2x3" data-w="2" data-h="3" data-col="blue"></div>
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-7" data-d="d-2x3" data-w="2" data-h="3" data-col="purple"></div>
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-8" data-d="d-2x3" data-w="2" data-h="3" data-col="white"></div>
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-9" data-d="d-2x3" data-w="2" data-h="3" data-col="black"></div>
+            <div class="menu-item d-2x3" data-id="wardrobe-2x3-10" data-d="d-2x3" data-w="2" data-h="3" data-col="brown"></div>
+
+          </div>
+  
+          <!-- appliances/fixtures -->
+          <div id="section2" class="menu-section hidden">
+            
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="washingmachine-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="microwave-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="microwave-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="microwave-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="microwave-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="microwave-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="microwave-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="microwave-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="microwave-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="microwave-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="microwave-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="oven-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="oven-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="oven-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="oven-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="oven-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="oven-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="oven-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="oven-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="oven-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="oven-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="fridge-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="fridge-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="fridge-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="fridge-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="fridge-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="fridge-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="fridge-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="fridge-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="fridge-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="fridge-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="lamp-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="lamp-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="lamp-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="lamp-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="lamp-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="lamp-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="lamp-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="lamp-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="lamp-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="lamp-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-1" data-d="d-1x3" data-w="1" data-h="3" data-col="pink"></div>
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-2" data-d="d-1x3" data-w="1" data-h="3" data-col="red"></div>
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-3" data-d="d-1x3" data-w="1" data-h="3" data-col="orange"></div>
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-4" data-d="d-1x3" data-w="1" data-h="3" data-col="yellow"></div>
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-5" data-d="d-1x3" data-w="1" data-h="3" data-col="green"></div>
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-6" data-d="d-1x3" data-w="1" data-h="3" data-col="blue"></div>
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-7" data-d="d-1x3" data-w="1" data-h="3" data-col="purple"></div>
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-8" data-d="d-1x3" data-w="1" data-h="3" data-col="white"></div>
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-9" data-d="d-1x3" data-w="1" data-h="3" data-col="black"></div>
+            <div class="menu-item d-1x3" data-id="floorlamp-1x3-10" data-d="d-1x3" data-w="1" data-h="3" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="ceilinglight-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="sconce-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="sconce-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="sconce-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="sconce-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="sconce-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="sconce-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="sconce-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="sconce-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="sconce-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="sconce-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="sink-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="sink-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="sink-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="sink-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="sink-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="sink-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="sink-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="sink-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="sink-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="sink-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+            
+
+            <div class="menu-item d-1x2" data-id="toilet-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="toilet-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="toilet-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="toilet-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="toilet-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="toilet-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="toilet-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="toilet-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="toilet-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="toilet-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-1x3" data-id="shower-1x3-1" data-d="d-1x3" data-w="1" data-h="3" data-col="pink"></div>
+            <div class="menu-item d-1x3" data-id="shower-1x3-2" data-d="d-1x3" data-w="1" data-h="3" data-col="red"></div>
+            <div class="menu-item d-1x3" data-id="shower-1x3-3" data-d="d-1x3" data-w="1" data-h="3" data-col="orange"></div>
+            <div class="menu-item d-1x3" data-id="shower-1x3-4" data-d="d-1x3" data-w="1" data-h="3" data-col="yellow"></div>
+            <div class="menu-item d-1x3" data-id="shower-1x3-5" data-d="d-1x3" data-w="1" data-h="3" data-col="green"></div>
+            <div class="menu-item d-1x3" data-id="shower-1x3-6" data-d="d-1x3" data-w="1" data-h="3" data-col="blue"></div>
+            <div class="menu-item d-1x3" data-id="shower-1x3-7" data-d="d-1x3" data-w="1" data-h="3" data-col="purple"></div>
+            <div class="menu-item d-1x3" data-id="shower-1x3-8" data-d="d-1x3" data-w="1" data-h="3" data-col="white"></div>
+            <div class="menu-item d-1x3" data-id="shower-1x3-9" data-d="d-1x3" data-w="1" data-h="3" data-col="black"></div>
+            <div class="menu-item d-1x3" data-id="shower-1x3-10" data-d="d-1x3" data-w="1" data-h="3" data-col="brown"></div>
+
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-1" data-d="d-2x1" data-w="2" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-2" data-d="d-2x1" data-w="2" data-h="1" data-col="red"></div>
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-3" data-d="d-2x1" data-w="2" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-4" data-d="d-2x1" data-w="2" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-5" data-d="d-2x1" data-w="2" data-h="1" data-col="green"></div>
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-6" data-d="d-2x1" data-w="2" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-7" data-d="d-2x1" data-w="2" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-8" data-d="d-2x1" data-w="2" data-h="1" data-col="white"></div>
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-9" data-d="d-2x1" data-w="2" data-h="1" data-col="black"></div>
+            <div class="menu-item d-2x1" data-id="bathtub-2x1-10" data-d="d-2x1" data-w="2" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-1" data-d="d-2x2" data-w="2" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-2" data-d="d-2x2" data-w="2" data-h="2" data-col="red"></div>
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-3" data-d="d-2x2" data-w="2" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-4" data-d="d-2x2" data-w="2" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-5" data-d="d-2x2" data-w="2" data-h="2" data-col="green"></div>
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-6" data-d="d-2x2" data-w="2" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-7" data-d="d-2x2" data-w="2" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-8" data-d="d-2x2" data-w="2" data-h="2" data-col="white"></div>
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-9" data-d="d-2x2" data-w="2" data-h="2" data-col="black"></div>
+            <div class="menu-item d-2x2" data-id="kitchensink-2x2-10" data-d="d-2x2" data-w="2" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-2x1" data-id="tv-2x1-1" data-d="d-2x1" data-w="2" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-2x1" data-id="tv-2x1-2" data-d="d-2x1" data-w="2" data-h="1" data-col="red"></div>
+            <div class="menu-item d-2x1" data-id="tv-2x1-3" data-d="d-2x1" data-w="2" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-2x1" data-id="tv-2x1-4" data-d="d-2x1" data-w="2" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-2x1" data-id="tv-2x1-5" data-d="d-2x1" data-w="2" data-h="1" data-col="green"></div>
+            <div class="menu-item d-2x1" data-id="tv-2x1-6" data-d="d-2x1" data-w="2" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-2x1" data-id="tv-2x1-7" data-d="d-2x1" data-w="2" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-2x1" data-id="tv-2x1-8" data-d="d-2x1" data-w="2" data-h="1" data-col="white"></div>
+            <div class="menu-item d-2x1" data-id="tv-2x1-9" data-d="d-2x1" data-w="2" data-h="1" data-col="black"></div>
+            <div class="menu-item d-2x1" data-id="tv-2x1-10" data-d="d-2x1" data-w="2" data-h="1" data-col="brown"></div>
+          </div>
+          
+          <!-- decorations -->
+          <div id="section3" class="menu-section hidden">
+            <div class="menu-item d-1x1" data-id="candle-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="candle-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="candle-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="candle-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="candle-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="candle-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="candle-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="candle-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="candle-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="candle-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="lavalamp-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="fish-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="fish-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="fish-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="fish-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="fish-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="fish-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="fish-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="fish-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="fish-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="fish-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="plant-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="plant-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="plant-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="plant-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="plant-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="plant-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="plant-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="plant-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="plant-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="plant-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x3" data-id="plant-1x3-1" data-d="d-1x3" data-w="1" data-h="3" data-col="pink"></div>
+            <div class="menu-item d-1x3" data-id="plant-1x3-2" data-d="d-1x3" data-w="1" data-h="3" data-col="red"></div>
+            <div class="menu-item d-1x3" data-id="plant-1x3-3" data-d="d-1x3" data-w="1" data-h="3" data-col="orange"></div>
+            <div class="menu-item d-1x3" data-id="plant-1x3-4" data-d="d-1x3" data-w="1" data-h="3" data-col="yellow"></div>
+            <div class="menu-item d-1x3" data-id="plant-1x3-5" data-d="d-1x3" data-w="1" data-h="3" data-col="green"></div>
+            <div class="menu-item d-1x3" data-id="plant-1x3-6" data-d="d-1x3" data-w="1" data-h="3" data-col="blue"></div>
+            <div class="menu-item d-1x3" data-id="plant-1x3-7" data-d="d-1x3" data-w="1" data-h="3" data-col="purple"></div>
+            <div class="menu-item d-1x3" data-id="plant-1x3-8" data-d="d-1x3" data-w="1" data-h="3" data-col="white"></div>
+            <div class="menu-item d-1x3" data-id="plant-1x3-9" data-d="d-1x3" data-w="1" data-h="3" data-col="black"></div>
+            <div class="menu-item d-1x3" data-id="plant-1x3-10" data-d="d-1x3" data-w="1" data-h="3" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="stringlights-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="painting-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="painting-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="painting-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="painting-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="painting-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="painting-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="painting-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="painting-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="painting-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="painting-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="painting-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="painting-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="painting-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="painting-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="painting-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="painting-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="painting-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="painting-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="painting-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="painting-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-2x1" data-id="painting-2x1-1" data-d="d-2x1" data-w="2" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-2x1" data-id="painting-2x1-2" data-d="d-2x1" data-w="2" data-h="1" data-col="red"></div>
+            <div class="menu-item d-2x1" data-id="painting-2x1-3" data-d="d-2x1" data-w="2" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-2x1" data-id="painting-2x1-4" data-d="d-2x1" data-w="2" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-2x1" data-id="painting-2x1-5" data-d="d-2x1" data-w="2" data-h="1" data-col="green"></div>
+            <div class="menu-item d-2x1" data-id="painting-2x1-6" data-d="d-2x1" data-w="2" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-2x1" data-id="painting-2x1-7" data-d="d-2x1" data-w="2" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-2x1" data-id="painting-2x1-8" data-d="d-2x1" data-w="2" data-h="1" data-col="white"></div>
+            <div class="menu-item d-2x1" data-id="painting-2x1-9" data-d="d-2x1" data-w="2" data-h="1" data-col="black"></div>
+            <div class="menu-item d-2x1" data-id="painting-2x1-10" data-d="d-2x1" data-w="2" data-h="1" data-col="brown"></div>
+
+          </div>
+          
+          <!-- other -->
+          <div id="section4" class="menu-section hidden">
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="toiletpaper-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="towel-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="towel-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="towel-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="towel-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="towel-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="towel-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="towel-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="towel-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="towel-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="towel-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="towel-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="towel-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="towel-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="towel-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="towel-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="towel-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="towel-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="towel-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="towel-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="towel-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="utensils-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="utensils-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="utensils-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="utensils-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="utensils-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="utensils-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="utensils-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="utensils-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="utensils-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="utensils-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="cups-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="cups-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="cups-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="cups-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="cups-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="cups-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="cups-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="cups-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="cups-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="cups-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="dishes-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="dishes-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="dishes-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="dishes-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="dishes-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="dishes-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="dishes-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="dishes-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="dishes-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="dishes-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="laptop-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="laptop-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="laptop-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="laptop-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="laptop-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="laptop-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="laptop-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="laptop-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="laptop-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="laptop-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x1" data-id="clock-1x1-1" data-d="d-1x1" data-w="1" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-1x1" data-id="clock-1x1-2" data-d="d-1x1" data-w="1" data-h="1" data-col="red"></div>
+            <div class="menu-item d-1x1" data-id="clock-1x1-3" data-d="d-1x1" data-w="1" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-1x1" data-id="clock-1x1-4" data-d="d-1x1" data-w="1" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-1x1" data-id="clock-1x1-5" data-d="d-1x1" data-w="1" data-h="1" data-col="green"></div>
+            <div class="menu-item d-1x1" data-id="clock-1x1-6" data-d="d-1x1" data-w="1" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-1x1" data-id="clock-1x1-7" data-d="d-1x1" data-w="1" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-1x1" data-id="clock-1x1-8" data-d="d-1x1" data-w="1" data-h="1" data-col="white"></div>
+            <div class="menu-item d-1x1" data-id="clock-1x1-9" data-d="d-1x1" data-w="1" data-h="1" data-col="black"></div>
+            <div class="menu-item d-1x1" data-id="clock-1x1-10" data-d="d-1x1" data-w="1" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="door-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="door-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="door-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="door-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="door-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="door-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="door-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="door-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="door-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="door-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="doorround-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="doorround-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="doorround-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="doorround-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="doorround-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="doorround-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="doorround-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="doorround-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="doorround-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="doorround-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-1x2" data-id="windowround-1x2-1" data-d="d-1x2" data-w="1" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-1x2" data-id="windowround-1x2-2" data-d="d-1x2" data-w="1" data-h="2" data-col="red"></div>
+            <div class="menu-item d-1x2" data-id="windowround-1x2-3" data-d="d-1x2" data-w="1" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-1x2" data-id="windowround-1x2-4" data-d="d-1x2" data-w="1" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-1x2" data-id="windowround-1x2-5" data-d="d-1x2" data-w="1" data-h="2" data-col="green"></div>
+            <div class="menu-item d-1x2" data-id="windowround-1x2-6" data-d="d-1x2" data-w="1" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-1x2" data-id="windowround-1x2-7" data-d="d-1x2" data-w="1" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-1x2" data-id="windowround-1x2-8" data-d="d-1x2" data-w="1" data-h="2" data-col="white"></div>
+            <div class="menu-item d-1x2" data-id="windowround-1x2-9" data-d="d-1x2" data-w="1" data-h="2" data-col="black"></div>
+            <div class="menu-item d-1x2" data-id="windowround-1x2-10" data-d="d-1x2" data-w="1" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-2x1" data-id="window-2x1-1" data-d="d-2x1" data-w="2" data-h="1" data-col="pink"></div>
+            <div class="menu-item d-2x1" data-id="window-2x1-2" data-d="d-2x1" data-w="2" data-h="1" data-col="red"></div>
+            <div class="menu-item d-2x1" data-id="window-2x1-3" data-d="d-2x1" data-w="2" data-h="1" data-col="orange"></div>
+            <div class="menu-item d-2x1" data-id="window-2x1-4" data-d="d-2x1" data-w="2" data-h="1" data-col="yellow"></div>
+            <div class="menu-item d-2x1" data-id="window-2x1-5" data-d="d-2x1" data-w="2" data-h="1" data-col="green"></div>
+            <div class="menu-item d-2x1" data-id="window-2x1-6" data-d="d-2x1" data-w="2" data-h="1" data-col="blue"></div>
+            <div class="menu-item d-2x1" data-id="window-2x1-7" data-d="d-2x1" data-w="2" data-h="1" data-col="purple"></div>
+            <div class="menu-item d-2x1" data-id="window-2x1-8" data-d="d-2x1" data-w="2" data-h="1" data-col="white"></div>
+            <div class="menu-item d-2x1" data-id="window-2x1-9" data-d="d-2x1" data-w="2" data-h="1" data-col="black"></div>
+            <div class="menu-item d-2x1" data-id="window-2x1-10" data-d="d-2x1" data-w="2" data-h="1" data-col="brown"></div>
+
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-1" data-d="d-2x2" data-w="2" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-2" data-d="d-2x2" data-w="2" data-h="2" data-col="red"></div>
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-3" data-d="d-2x2" data-w="2" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-4" data-d="d-2x2" data-w="2" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-5" data-d="d-2x2" data-w="2" data-h="2" data-col="green"></div>
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-6" data-d="d-2x2" data-w="2" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-7" data-d="d-2x2" data-w="2" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-8" data-d="d-2x2" data-w="2" data-h="2" data-col="white"></div>
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-9" data-d="d-2x2" data-w="2" data-h="2" data-col="black"></div>
+            <div class="menu-item d-2x2" data-id="windowcurtain-2x2-10" data-d="d-2x2" data-w="2" data-h="2" data-col="brown"></div>
+
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-1" data-d="d-2x2" data-w="2" data-h="2" data-col="pink"></div>
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-2" data-d="d-2x2" data-w="2" data-h="2" data-col="red"></div>
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-3" data-d="d-2x2" data-w="2" data-h="2" data-col="orange"></div>
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-4" data-d="d-2x2" data-w="2" data-h="2" data-col="yellow"></div>
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-5" data-d="d-2x2" data-w="2" data-h="2" data-col="green"></div>
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-6" data-d="d-2x2" data-w="2" data-h="2" data-col="blue"></div>
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-7" data-d="d-2x2" data-w="2" data-h="2" data-col="purple"></div>
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-8" data-d="d-2x2" data-w="2" data-h="2" data-col="white"></div>
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-9" data-d="d-2x2" data-w="2" data-h="2" data-col="black"></div>
+            <div class="menu-item d-2x2" data-id="windowcircle-2x2-10" data-d="d-2x2" data-w="2" data-h="2" data-col="brown"></div>
+          </div>
+  
+          <div id="collapse">
+            <div id="arrow" class="right-arrow"></div>
+          </div>
+  
+      </div>
+    
+      <div id="container">
+          <div id="grid-container">
+            <div id="grid1" class="grid" data-pattern="solid"></div>
+            <div id="grid2" class="grid" data-pattern="solid"></div>
+            <div id="grid3" class="grid" data-pattern="solid"></div>
+            <div id="grid4" class="grid" data-pattern="solid"></div>
+          </div>
+      </div>
+
+      <div id="background-select">
+
+        <div id="room-select">
+          <div id="room-rows">
+            <div class="room-row">
+              <div class="bg-room room-selected" data-room="1" data-pattern="solid">Room 1</div>
+              <div class="bg-room" data-room="2" data-pattern="solid">Room 2</div>
+            </div>
+            <div class="room-row">
+              <div class="bg-room" data-room="3" data-pattern="solid">Room 3</div>
+              <div class="bg-room" data-room="4" data-pattern="solid">Room 4</div>
+            </div>
+          </div>
+
+          <div id="color-rows">
+            <div class="color-row">
+              <div class="bg-color color-selected" data-hex="#fff" data-col="white">&nbsp;</div>
+              <div class="bg-color" data-hex="#ffabc5" data-col="pink">&nbsp;</div>
+              <div class="bg-color" data-hex="#cc4371" data-col="pink">&nbsp;</div>
+              <div class="bg-color" data-hex="#f52020" data-col="red">&nbsp;</div>
+              <div class="bg-color" data-hex="#9c1f1f" data-col="red">&nbsp;</div>
+              <div class="bg-color" data-hex="#ffa763" data-col="orange">&nbsp;</div>
+              <div class="bg-color" data-hex="#d66209" data-col="orange">&nbsp;</div>
+              <div class="bg-color" data-hex="#ffde8a" data-col="yellow">&nbsp;</div>
+              <div class="bg-color" data-hex="#ffe100" data-col="yellow">&nbsp;</div>
+
+            </div>
+            <div class="color-row">
+              <div class="bg-color" data-hex="#444" data-col="black">&nbsp;</div>
+              <div class="bg-color" data-hex="#91c27a" data-col="green">&nbsp;</div>
+              <div class="bg-color" data-hex="#234024" data-col="green">&nbsp;</div>
+              <div class="bg-color" data-hex="#a3c9e3" data-col="blue">&nbsp;</div>
+              <div class="bg-color" data-hex="#2b568f" data-col="blue">&nbsp;</div>
+              <div class="bg-color" data-hex="#d8b5ff" data-col="purple">&nbsp;</div>
+              <div class="bg-color" data-hex="#552c82" data-col="purple">&nbsp;</div>
+              <div class="bg-color" data-hex="#a87347" data-col="brown">&nbsp;</div>
+              <div class="bg-color" data-hex="#523822" data-col="brown">&nbsp;</div>
+            </div>
+          </div>
+
+          <div id="pattern-rows">
+            <div class="pattern-row">
+              <div class="bg-pattern pattern-selected" id="solid" data-pattern="solid">&nbsp;</div>
+              <div class="bg-pattern" id="stripe" data-pattern="stripe">&nbsp;</div>
+            </div>
+            <div class="pattern-row">
+              <div class="bg-pattern" id="dot" data-pattern="dot">&nbsp;</div>
+              <div class="bg-pattern" id="checker" data-pattern="checker">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="delete" class="hidden delete-default" style="background-image: url('images/delete.webp')"></div>
+
+      <div id="done-btn-cont">
+        <div id="done-btn">
+          <p class="title-font">Done</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="playagain-btn-cont">
+      <div id="playagain-btn" class="hidden">
+        <p class="title-font">Play Again</p>
+      </div>
+    </div>
+
+    <div id="sound-controls" class="hidden">
+      <div id="music" style="background-image: url('images/musicon.png')"></div>
+      <div id="sfx" style="background-image: url('images/sfxon.png')"></div>
+    </div>
+
+
+    <script type="text/javascript" src="sentences.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
+
