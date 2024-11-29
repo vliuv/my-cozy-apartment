@@ -2653,8 +2653,8 @@ let data = {
             "id": "fish-1x1-4",
             "col": "yellow",
             "base": "If you were a sea creature you'd be *.",
-            "add": "an octopus ",
-            "final": "If you were a sea creature you'd be an octopus ."
+            "add": "an octopus",
+            "final": "If you were a sea creature you'd be an octopus."
         },
         {
             "id": "fish-1x1-5",
